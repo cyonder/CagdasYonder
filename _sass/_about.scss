@@ -1,0 +1,43 @@
+.about{
+  display: flex;
+
+  section.photo{
+    width: 35%;
+    @media(max-width: 639px){ display: none; }
+  }
+
+  .about-photo{
+    background-image: url("/images/about-photo.png");
+    background-repeat: no-repeat;
+    background-size: contain; // Grow as tall or as wide as possible
+
+    line-height: 1.4;
+    margin: 0;
+    padding: 0;
+  }
+
+  section.about-me{
+    width: 65%;
+    @media(max-width: 639px){ width: 100%; }
+
+    .about-me-wrapper{ padding: 2rem; }
+
+    .about-title{
+      img{
+        display: block;
+        margin: 0 auto;
+        max-height: 20rem;
+        width: 100%;
+      }
+    }
+
+    .about-content{
+      margin-top: 2rem;
+      .social{
+        cursor: default; // Remove text-cursor while moving cursor between icons.
+        font-size: 2.5rem;
+        a{ display: inline-block; }
+      }
+    }
+  }
+}

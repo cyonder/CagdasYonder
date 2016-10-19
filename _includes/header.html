@@ -1,0 +1,47 @@
+<header class="global">
+  <nav class="primary-navbar">
+    <div class="primary-navbar-wrapper cf">
+      <a href="javascript:void(0)" class="mobile-nav-button left">
+        <span class="mobile-nav-icon"></span>
+      </a>
+
+      <a href="/" class="center-logo">
+        <h1 class="logo h-text left">Cagdas Yonder</h1>
+      </a>
+
+      <div class="primary-menu">
+        <ul>
+          <li><a href="/">Articles</a></li>
+          <li><a href="/portfolio.html">Portfolio</a></li>
+          <li><a href="/about.html">About Me</a></li>
+        </ul>
+      </div>
+
+      <a href="mailto:hello@cagdasyonder.com" class="email-button right">
+        <span aria-hidden="true" data-icon="&#xea31;" class="icon icon-envelop2"></span>
+        <span class="email-button-text">Email Me</span>
+      </a>
+
+      <a href="mailto:hello@cagdasyonder.com" class="mobile-email-button right">
+        <span aria-hidden="true" data-icon="&#xea31;" class="icon icon-envelop2"></span>
+      </a>
+    </div>
+  </nav>
+
+  <nav class="secondary-navbar hide">
+    <ul>
+      <li><a href="/">Articles</a></li>
+      <li><a href="/portfolio.html">Portfolio</a></li>
+      <li><a href="/about.html">About Me</a></li>
+    </ul>
+  </nav>
+</header>
+
+<script type="text/javascript">
+  $('.mobile-nav-button').click(function(){
+    $('.mobile-nav-button').toggleClass("active");
+    $('.secondary-navbar').slideToggle('slow', function(){
+      $('.secondary-navbar').toggleClass("hide show");
+    });
+  });
+</script>

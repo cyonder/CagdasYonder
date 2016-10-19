@@ -1,0 +1,388 @@
+body{}
+
+#about,
+article,
+.portfolio-page{ // Add other pages that needs this wrapper
+  background-color: #FFFFFF;
+  border: 2px solid $color-border;
+  border-radius: $border-radius-base;
+}
+
+.portfolio-page{ padding: 2rem; }
+
+article{
+  padding: 2rem;
+
+  .post-title, .post-meta{ text-align: center; }
+  .post-title{ color: $color-secondary; }
+
+  p:last-child{ margin: 0; }
+
+  .meta-separator{ color: $color-secondary; }
+
+  img{
+    display: block;
+    width: 100%;
+  }
+}
+
+.page-container{
+  margin: 5rem auto;
+
+                             width:     96rem;
+  @media(max-width: 1024px){ width:     75rem; }
+  @media(max-width: 820px) { width:     70rem; }
+  @media(max-width: 750px) { width:     60rem; }
+  @media(max-width: 639px) { max-width: 94%;   }
+}
+
+.mobile-nav-button,
+h1.logo,
+.primary-menu,
+.email-button{
+  display: inline-block;
+}
+
+header.global{
+  border-bottom: 3px solid $color-border;
+
+  nav.primary-navbar{
+    background-color: $color-secondary;
+    height: 7rem;
+    padding: 1rem 0;
+
+    .primary-navbar-wrapper{
+      display: flex;
+      height: 5rem;
+      justify-content: space-between;
+      margin: 0 auto;
+                                 width:     96rem;
+      @media(max-width: 1024px){ width:     75rem; }
+      @media(max-width: 820px) { width:     70rem; }
+      @media(max-width: 750px) { width:     60rem; }
+      @media(max-width: 639px) { max-width: 94%;   }
+    }
+
+    .mobile-nav-button{
+      font-size: 0;
+      line-height: 0;
+      position: relative;
+      top: 1rem;
+      transition: 0.2s;
+      height: 3rem;
+      width: 3rem;
+
+      display: none;
+      @media(max-width: 820px){ display: block; }
+
+      &:hover > .mobile-nav-icon,
+      &:hover > .mobile-nav-icon::before,
+      &:hover > .mobile-nav-icon::after{
+        background-color: $color-brand;
+      }
+
+      .mobile-nav-icon{
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        background-color: $color-brand;
+        border-radius: 2px;
+        display: inline-block;
+        height: 2px;
+        position: relative;
+        top: 14px;
+        transition: 0.2s;
+        width: 3rem;
+
+        &::before,
+        &::after{
+          -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+          background-color: $color-brand;
+          border-radius: 2px;
+          content: '';
+          display: block;
+          height: 2px;
+          position: absolute;
+          transition: 0.2s;
+          width: 3rem;
+        }
+
+        &::before{ top: 8px; }
+        &::after{ top: -8px; }
+      }
+    }
+
+    .mobile-nav-button.active{
+      .mobile-nav-icon{
+        background: transparent; // Remove middle line
+
+        &::before, &::after{ top: 0; }
+
+        &::before{
+          -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+        }
+
+        &::after{
+          -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+        }
+      }
+    }
+
+    .center-logo{
+      margin: 0;
+      @media(max-width: 820px){ margin: 0 auto; }
+    }
+
+    h1.logo{
+      background-image: url("/images/logo-long.svg");
+      background-repeat: no-repeat;
+      background-size: 20rem 5rem;
+
+      line-height: 1;
+      margin: 0;
+      padding: 0;
+      width: 20rem;
+
+      @media(max-width: 820px){ float: none; }
+      @media(max-width: 639px){ width: 5rem; }
+    }
+
+    .email-button{
+      color: $color-brand;
+      position: relative;
+      top: 0.6rem;
+      height: 3rem;
+      font-size: 3rem;
+
+      &:hover{
+        color: $color-background;
+        transition: 0.2s;
+      }
+
+      .email-button-text{
+        font-size: 1.6rem;
+        vertical-align: 0.7rem;
+      }
+
+      @media(max-width: 820px){ display: none; }
+    }
+
+    .mobile-email-button{
+      color: $color-brand;
+      display: none;
+      position: relative;
+      top: 1rem;
+      height: 3rem;
+      width: 3rem;
+
+      span{
+        font-size: 3rem;
+        &:hover{
+          color: $color-background;
+          transition: 0.2s;
+        }
+      }
+
+      @media(max-width: 820px){ display: block; }
+    }
+  }
+
+
+  .primary-menu, nav.secondary-navbar{
+    font-size: 1.6rem;
+    margin: 0 auto;
+
+    a{
+      color: $color-background;
+
+      &:hover{
+        color: $color-brand;
+        transition: 0.2s;
+      }
+    }
+  }
+
+  .primary-menu{
+    font-family: $font-open-sans-light;
+
+    @media(max-width: 820px){
+      margin: 0;
+      display: none;
+    }
+
+    ul{
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      position: relative;
+      top: 1.4rem;
+
+      li{
+        display: inline-block;
+        margin: 0 2rem 0 0;
+        &:last-child{ margin: 0; }
+      }
+    }
+  }
+
+  nav.secondary-navbar{
+    background-color: $color-tertiary;
+
+    // Close secondary-navbar if page is maximized while it's open.
+    // !important will override javascript's display: block;
+    @media(min-width: 820px){ display: none !important; }
+
+    ul{
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+
+      li{
+        a{
+          display: block;
+          padding: 1.4rem 1rem;
+          &:hover{
+            background-color: darken($color-brand, 10%);
+            color: $color-background;
+          }
+        }
+      }
+    }
+  }
+}
+
+footer.global{
+  color: $color-background;
+
+  // In mobile, footer background gets small and white parts comes out. Need dark color for text.
+  @media(max-width: 639px){ color: $color-secondary; }
+
+  .primary-footer{
+    border-top: 3px solid $color-border;
+    background-color: $color-tertiary;
+    background-image: url("/images/footer-background.svg");
+    background-size:cover;
+    background-position: bottom;
+    font-size: 2rem;
+    font-family: $font-exo-extra-light;
+    padding: 2rem 0;
+
+    .primary-footer-wrapper{
+      margin: 0 auto;
+                                 width:     96rem;
+      @media(max-width: 1024px){ width:     75rem; }
+      @media(max-width: 820px) { width:     70rem; }
+      @media(max-width: 750px) { width:     60rem; }
+      @media(max-width: 639px) { max-width: 94%;   }
+    }
+
+    .section-definition{
+      text-align: justify;
+      width: 40%;
+      @media(max-width: 639px){ width: 100%; }
+
+      p{
+        margin-right: 2rem;
+        margin-bottom: 0;
+      }
+    }
+
+    .section-form{
+      width: 60%;
+      @media(max-width: 639px){
+        margin-top: 2rem;
+        width: 100%;
+      }
+    }
+  }
+
+  .form-display{
+    // background: rgba(#FFFFFF, 0.5);
+    background: $color-background;
+    border: 3px solid darken($color-tertiary, 10%);
+    display: block;
+    font-family: $font-open-sans-light;
+
+    .mc-field-group{
+      flex: 2;
+      position: relative;
+      border-bottom: 3px solid darken($color-tertiary, 10%);
+    }
+
+    input{
+      background: none;
+      border: 0;
+      border-radius: 0;
+      color: $color-text;
+      display: block;
+      font-size: 1.8rem;
+      height: 6rem;
+      margin-bottom: 0;
+      padding-top: 2rem;
+      position: relative;
+      width: 100%;
+
+
+      &:focus{ border: 0; }
+
+      &[type="submit"]{
+        background-color: $color-brand;
+        color: $color-background;
+        font-size: 2rem;
+        flex: 1;
+        padding: 0 1.5rem;
+
+        &:hover{
+          background-color: darken($color-brand, 10%);
+          -webkit-transition: all .2s ease-in-out;
+          transition: all .2s ease-in-out;
+        }
+      }
+    }
+
+    label{
+      color: $color-brand;
+      position: absolute;
+      font-size: 1.6rem;
+      left: 1rem;
+      z-index: 2;
+    }
+  }
+
+  .secondary-footer{
+    background-color: $color-secondary;
+    color: $color-background;
+    font-family: $font-open-sans-light;
+    padding: 2rem 0;
+
+    .secondary-footer-wrapper{
+      margin: 0 auto;
+                                 width:     96rem;
+      @media(max-width: 1024px){ width:     75rem; }
+      @media(max-width: 820px) { width:     70rem; }
+      @media(max-width: 750px) { width:     60rem; }
+      @media(max-width: 639px) { max-width: 94%;   }
+    }
+
+    .section-about{
+      width: 70%;
+      text-align: left;
+      @media(max-width: 639px){
+        text-align: center;
+        width: 100%;
+      }
+    }
+
+    .section-copyright{
+      width: 30%;
+      text-align: right;
+      @media(max-width: 639px){
+        text-align: center;
+        width: 100%;
+      }
+    }
+  }
+}
